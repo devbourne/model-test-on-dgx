@@ -1,0 +1,49 @@
+{
+  "model": "gemma3:27b",
+  "prompt": "v3_2pass_2fewshot_concise",
+  "total": 1,
+  "json_parse_pass1": 1.0,
+  "json_parse_pass2": 1.0,
+  "role_accuracy": 0.2857142857142857,
+  "level_accuracy": 0.2857142857142857,
+  "main_f1": 0,
+  "rel_accuracy": 0.0,
+  "rel_missing_pct": 0.8,
+  "rel_extra": 5,
+  "role_confusion": {
+    "Background": {
+      "Illustration": 1
+    },
+    "Explanation": {
+      "Explanation": 1,
+      "Illustration": 1
+    },
+    "Evaluation": {
+      "Explanation": 1
+    },
+    "Main Claim": {
+      "Comparison": 1
+    },
+    "Illustration": {
+      "Illustration": 1
+    },
+    "Conclusion": {
+      "Main Claim": 1
+    }
+  },
+  "rel_confusion": {
+    "contextualizes": {
+      "MISSING": 2
+    },
+    "explains": {
+      "MISSING": 1
+    },
+    "exemplifies": {
+      "MISSING": 1
+    },
+    "concludes": {
+      "compares": 1
+    }
+  },
+  "elapsed_seconds": 51.990713119506836
+}

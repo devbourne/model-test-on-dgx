@@ -1,0 +1,15 @@
+Write a short story of exactly 500 words (±10 words).
+
+Requirements:
+- Genre: literary science fiction with melancholic tone
+- Setting: a lighthouse on an artificial island in 2147, during a permanent global twilight caused by atmospheric dust
+- Protagonist: Ines, a 72-year-old former oceanographer who maintains the lighthouse alone
+- Inciting event: she receives a radio signal in Morse code from a ship that, according to all records, sank 40 years ago
+- Constraints:
+  1. Begin in medias res with a sensory detail (not dialogue, not weather exposition)
+  2. Include exactly one flashback (2–3 sentences) revealing why Ines took this post
+  3. End on an ambiguous image, not a resolution
+  4. Do not use the words "hope", "beacon", "echo", or "ghost"
+- Craft: vary sentence length, use at least two concrete metaphors grounded in marine biology, avoid adverbs ending in -ly where possible
+
+Output only the story. No title, no preamble, no word count.

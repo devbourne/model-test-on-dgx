@@ -1,0 +1,120 @@
+{
+  "model": "deepseek-r1:32b",
+  "prompt": "v3_2pass_2fewshot_concise",
+  "total": 10,
+  "json_parse_pass1": 1.0,
+  "json_parse_pass2": 1.0,
+  "role_accuracy": 0.6056338028169014,
+  "level_accuracy": 0.7887323943661971,
+  "main_f1": 0.6666666666666666,
+  "rel_accuracy": 0.3188405797101449,
+  "rel_missing_pct": 0.4492753623188406,
+  "rel_extra": 38,
+  "role_confusion": {
+    "Background": {
+      "Background": 6,
+      "Main Claim": 1,
+      "Evidence": 1,
+      "Explanation": 1
+    },
+    "Explanation": {
+      "Explanation": 6,
+      "Illustration": 2,
+      "Contrast": 1,
+      "Evaluation": 1,
+      "Conclusion": 1,
+      "Main Claim": 1
+    },
+    "Evaluation": {
+      "Consequence": 1,
+      "Explanation": 1
+    },
+    "Main Claim": {
+      "Main Claim": 9,
+      "Evidence": 2
+    },
+    "Illustration": {
+      "Illustration": 11,
+      "Background": 1,
+      "Explanation": 1
+    },
+    "Conclusion": {
+      "Main Claim": 1,
+      "Conclusion": 3
+    },
+    "Evidence": {
+      "Background": 1,
+      "Contrast": 1,
+      "Consequence": 1,
+      "Explanation": 3,
+      "Illustration": 1,
+      "Evidence": 3
+    },
+    "Contrast": {
+      "Contrast": 2,
+      "Evaluation": 1
+    },
+    "Consequence": {
+      "Illustration": 1,
+      "Conclusion": 1,
+      "Consequence": 2
+    },
+    "Definition": {
+      "Main Claim": 1
+    },
+    "Comparison": {
+      "Illustration": 1,
+      "Comparison": 1
+    }
+  },
+  "rel_confusion": {
+    "contextualizes": {
+      "supports": 1,
+      "contextualizes": 4,
+      "extends": 2,
+      "MISSING": 3
+    },
+    "explains": {
+      "exemplifies": 1,
+      "MISSING": 8,
+      "explains": 5,
+      "extends": 1,
+      "concludes": 1,
+      "supports": 1
+    },
+    "exemplifies": {
+      "exemplifies": 6,
+      "MISSING": 4,
+      "extends": 2,
+      "illustrates": 1
+    },
+    "concludes": {
+      "extends": 2,
+      "concludes": 1,
+      "MISSING": 1
+    },
+    "supports": {
+      "MISSING": 7,
+      "supports": 2,
+      "exemplifies": 1,
+      "extends": 1
+    },
+    "contrasts": {
+      "MISSING": 4,
+      "contrasts": 1
+    },
+    "evaluates": {
+      "supports": 1
+    },
+    "extends": {
+      "MISSING": 3,
+      "concludes": 1,
+      "extends": 2
+    },
+    "compares": {
+      "MISSING": 1,
+      "compares": 1
+    }
+  },
+  "elapsed_seconds": 1841.7344858646393
+}

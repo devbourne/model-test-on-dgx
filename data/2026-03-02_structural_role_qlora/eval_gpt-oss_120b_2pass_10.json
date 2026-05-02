@@ -1,0 +1,105 @@
+{
+  "model": "gpt-oss:120b",
+  "prompt": "2pass",
+  "total": 10,
+  "json_parse_pass1": 1.0,
+  "json_parse_pass2": 1.0,
+  "role_accuracy": 0.676056338028169,
+  "level_accuracy": 0.7887323943661971,
+  "main_f1": 0.6666666666666666,
+  "rel_accuracy": 0.37681159420289856,
+  "role_confusion": {
+    "Background": {
+      "Background": 9
+    },
+    "Explanation": {
+      "Explanation": 7,
+      "Main Claim": 1,
+      "Evaluation": 2,
+      "Illustration": 2
+    },
+    "Evaluation": {
+      "Evaluation": 1,
+      "Explanation": 1
+    },
+    "Main Claim": {
+      "Comparison": 1,
+      "Explanation": 1,
+      "Main Claim": 7,
+      "Conclusion": 1,
+      "Contrast": 1
+    },
+    "Illustration": {
+      "Illustration": 13
+    },
+    "Conclusion": {
+      "Consequence": 1,
+      "Conclusion": 2,
+      "Evaluation": 1
+    },
+    "Evidence": {
+      "Explanation": 4,
+      "Contrast": 1,
+      "Consequence": 1,
+      "Evidence": 4
+    },
+    "Contrast": {
+      "Main Claim": 1,
+      "Contrast": 2
+    },
+    "Consequence": {
+      "Explanation": 1,
+      "Consequence": 3
+    },
+    "Definition": {
+      "Main Claim": 1
+    },
+    "Comparison": {
+      "Illustration": 1,
+      "Explanation": 1
+    }
+  },
+  "rel_confusion": {
+    "contextualizes": {
+      "MISSING": 8,
+      "compares": 1,
+      "concludes": 1
+    },
+    "explains": {
+      "MISSING": 8,
+      "explains": 6,
+      "exemplifies": 2,
+      "supports": 1
+    },
+    "exemplifies": {
+      "MISSING": 2,
+      "exemplifies": 11
+    },
+    "concludes": {
+      "MISSING": 1,
+      "concludes": 2,
+      "evaluates": 1
+    },
+    "supports": {
+      "MISSING": 6,
+      "supports": 3,
+      "explains": 2
+    },
+    "contrasts": {
+      "MISSING": 3,
+      "contrasts": 2
+    },
+    "evaluates": {
+      "explains": 1
+    },
+    "extends": {
+      "explains": 1,
+      "MISSING": 3,
+      "extends": 2
+    },
+    "compares": {
+      "MISSING": 1,
+      "explains": 1
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "model": "qwen3:30b",
+  "prompt": "refined_compact",
+  "total": 10,
+  "json_parse_rate": 0.9,
+  "role_accuracy": 0.6619718309859155,
+  "level_accuracy": 0.7887323943661971,
+  "main_f1": 0.7000000000000001,
+  "rel_accuracy": 0.2463768115942029
+}

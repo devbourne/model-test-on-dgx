@@ -1,0 +1,16 @@
+다음 영어 지문을 읽고 아래 8개 항목을 한국어로 작성해주세요.
+
+지문:
+"Digital platforms have made a lot of work less sticky. As work becomes ever more modularised, commoditised and standardised, and as markets for digital work are created, ties between service work and particular places can be disconnected. While the business process of outsourcing that emerged in the 1990s allowed large companies to take advantage of a 'global reserve army' by moving their call centres to cheap and distant labour markets, cloudwork changes the volume and granularity at which geographically non-proximate work can take place. A small business in New York can hire a freelance transcriber in Nairobi one day and New Delhi the next. No offices or factories need to be built, no local regulations are observed, and in most cases no local taxes are paid. The switch in the production network of work happens by simply sending some emails or clicking some buttons on a digital work platform. And, in this way, the employer leaves behind no material traces in the places where it was once an employer."
+
+분석 항목:
+1. 주제 (한 문장)
+2. 요지 (한 문장)
+3. 제목 2개 제안
+4. 논리 구조 분석 (단계별)
+5. 핵심 어휘 10개 (영어 원어 + 한국어 설명)
+6. 빈칸 추론 문제 2개 (원문 근거 포함)
+7. 선지 함정 분석 3개 (수능 출제 관점)
+8. 한 줄 요약
+
+한국어로 자연스럽게 작성하세요.

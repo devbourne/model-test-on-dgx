@@ -1,0 +1,50 @@
+{
+  "model": "deepseek-r1:32b",
+  "prompt": "v3_2pass_2fewshot_concise",
+  "total": 1,
+  "json_parse_pass1": 1.0,
+  "json_parse_pass2": 1.0,
+  "role_accuracy": 0.5714285714285714,
+  "level_accuracy": 0.5714285714285714,
+  "main_f1": 0.6666666666666666,
+  "rel_accuracy": 0.4,
+  "rel_missing_pct": 0.2,
+  "rel_extra": 2,
+  "role_confusion": {
+    "Background": {
+      "Background": 1
+    },
+    "Explanation": {
+      "Explanation": 1,
+      "Illustration": 1
+    },
+    "Evaluation": {
+      "Evaluation": 1
+    },
+    "Main Claim": {
+      "Comparison": 1
+    },
+    "Illustration": {
+      "Illustration": 1
+    },
+    "Conclusion": {
+      "Consequence": 1
+    }
+  },
+  "rel_confusion": {
+    "contextualizes": {
+      "MISSING": 1,
+      "extends": 1
+    },
+    "explains": {
+      "exemplifies": 1
+    },
+    "exemplifies": {
+      "exemplifies": 1
+    },
+    "concludes": {
+      "concludes": 1
+    }
+  },
+  "elapsed_seconds": 160.00561261177063
+}

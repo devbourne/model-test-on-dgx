@@ -1,0 +1,107 @@
+{
+  "model": "gpt-oss:120b",
+  "prompt": "v3_2pass_2fewshot_concise",
+  "total": 10,
+  "json_parse_pass1": 1.0,
+  "json_parse_pass2": 1.0,
+  "role_accuracy": 0.7323943661971831,
+  "level_accuracy": 0.8309859154929577,
+  "main_f1": 0.8571428571428572,
+  "rel_accuracy": 0.5072463768115942,
+  "rel_missing_pct": 0.2898550724637681,
+  "rel_extra": 17,
+  "role_confusion": {
+    "Background": {
+      "Background": 8,
+      "Evidence": 1
+    },
+    "Explanation": {
+      "Explanation": 7,
+      "Illustration": 3,
+      "Evaluation": 2
+    },
+    "Evaluation": {
+      "Evaluation": 1,
+      "Explanation": 1
+    },
+    "Main Claim": {
+      "Main Claim": 9,
+      "Explanation": 1,
+      "Evidence": 1
+    },
+    "Illustration": {
+      "Illustration": 13
+    },
+    "Conclusion": {
+      "Consequence": 1,
+      "Conclusion": 3
+    },
+    "Evidence": {
+      "Evidence": 3,
+      "Contrast": 1,
+      "Consequence": 1,
+      "Explanation": 3,
+      "Illustration": 1,
+      "Conclusion": 1
+    },
+    "Contrast": {
+      "Main Claim": 1,
+      "Contrast": 2
+    },
+    "Consequence": {
+      "Consequence": 4
+    },
+    "Definition": {
+      "Definition": 1
+    },
+    "Comparison": {
+      "Comparison": 1,
+      "Explanation": 1
+    }
+  },
+  "rel_confusion": {
+    "contextualizes": {
+      "contextualizes": 6,
+      "MISSING": 3,
+      "defines": 1
+    },
+    "explains": {
+      "exemplifies": 3,
+      "MISSING": 5,
+      "explains": 6,
+      "supports": 1,
+      "contrasts": 1,
+      "concludes": 1
+    },
+    "exemplifies": {
+      "exemplifies": 12,
+      "MISSING": 1
+    },
+    "concludes": {
+      "concludes": 4
+    },
+    "supports": {
+      "MISSING": 4,
+      "explains": 3,
+      "extends": 1,
+      "exemplifies": 2,
+      "supports": 1
+    },
+    "contrasts": {
+      "MISSING": 4,
+      "contrasts": 1
+    },
+    "evaluates": {
+      "MISSING": 1
+    },
+    "extends": {
+      "extends": 5,
+      "MISSING": 1
+    },
+    "compares": {
+      "MISSING": 1,
+      "explains": 1
+    }
+  },
+  "elapsed_seconds": 675.346892118454
+}

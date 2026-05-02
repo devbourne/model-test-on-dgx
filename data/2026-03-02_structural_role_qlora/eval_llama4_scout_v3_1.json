@@ -1,0 +1,16 @@
+{
+  "model": "llama4:scout",
+  "prompt": "v3_2pass_2fewshot_concise",
+  "total": 1,
+  "json_parse_pass1": 0.0,
+  "json_parse_pass2": 0.0,
+  "role_accuracy": 0.0,
+  "level_accuracy": 0.0,
+  "main_f1": 0,
+  "rel_accuracy": 0.0,
+  "rel_missing_pct": 1.0,
+  "rel_extra": 0,
+  "role_confusion": {},
+  "rel_confusion": {},
+  "elapsed_seconds": 1277.1218683719635
+}

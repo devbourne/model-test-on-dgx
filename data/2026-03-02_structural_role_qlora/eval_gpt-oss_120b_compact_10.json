@@ -1,0 +1,10 @@
+{
+  "model": "gpt-oss:120b",
+  "prompt": "refined_compact",
+  "total": 10,
+  "json_parse_rate": 1.0,
+  "role_accuracy": 0.5774647887323944,
+  "level_accuracy": 0.8169014084507042,
+  "main_f1": 0.6666666666666666,
+  "rel_accuracy": 0.2608695652173913
+}

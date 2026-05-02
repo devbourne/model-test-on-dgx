@@ -1,0 +1,123 @@
+{
+  "model": "gpt-oss:120b",
+  "prompt": "v3a_3pass_verify",
+  "total": 10,
+  "json_parse_pass1": 1.0,
+  "json_parse_pass2": 1.0,
+  "json_parse_pass3": 1.0,
+  "role_accuracy": 0.6338028169014085,
+  "level_accuracy": 0.7605633802816901,
+  "main_f1": 0.6666666666666666,
+  "rel_accuracy_pass2": 0.3333333333333333,
+  "rel_accuracy_pass3": 0.30434782608695654,
+  "rel_missing_pct_pass2": 0.43478260869565216,
+  "rel_missing_pct_pass3": 0.3333333333333333,
+  "rel_extra": 29,
+  "role_confusion": {
+    "Background": {
+      "Background": 7,
+      "Definition": 1,
+      "Illustration": 1
+    },
+    "Explanation": {
+      "Explanation": 6,
+      "Illustration": 1,
+      "Evidence": 1,
+      "Evaluation": 2,
+      "Consequence": 1,
+      "Conclusion": 1
+    },
+    "Evaluation": {
+      "Evaluation": 1,
+      "Explanation": 1
+    },
+    "Main Claim": {
+      "Main Claim": 7,
+      "Explanation": 2,
+      "Conclusion": 1,
+      "Evidence": 1
+    },
+    "Illustration": {
+      "Illustration": 13
+    },
+    "Conclusion": {
+      "Consequence": 2,
+      "Conclusion": 2
+    },
+    "Evidence": {
+      "Explanation": 3,
+      "Contrast": 1,
+      "Consequence": 1,
+      "Evidence": 4,
+      "Comparison": 1
+    },
+    "Contrast": {
+      "Main Claim": 1,
+      "Contrast": 1,
+      "Evaluation": 1
+    },
+    "Consequence": {
+      "Main Claim": 1,
+      "Consequence": 3
+    },
+    "Definition": {
+      "Main Claim": 1
+    },
+    "Comparison": {
+      "Illustration": 1,
+      "Comparison": 1
+    }
+  },
+  "rel_confusion": {
+    "contextualizes": {
+      "supports": 1,
+      "MISSING": 4,
+      "contextualizes": 3,
+      "concludes": 1,
+      "background": 1
+    },
+    "explains": {
+      "exemplifies": 1,
+      "supports": 2,
+      "MISSING": 7,
+      "explains": 3,
+      "extends": 1,
+      "concludes": 1,
+      "contrast": 2
+    },
+    "exemplifies": {
+      "exemplifies": 10,
+      "supports": 1,
+      "MISSING": 2
+    },
+    "concludes": {
+      "extends": 2,
+      "concludes": 2
+    },
+    "supports": {
+      "explains": 3,
+      "MISSING": 3,
+      "supports": 2,
+      "illustrates": 2,
+      "evidence": 1
+    },
+    "contrasts": {
+      "MISSING": 3,
+      "evidence": 1,
+      "evaluates": 1
+    },
+    "evaluates": {
+      "explains": 1
+    },
+    "extends": {
+      "supports": 1,
+      "MISSING": 3,
+      "consequence": 2
+    },
+    "compares": {
+      "MISSING": 1,
+      "compares": 1
+    }
+  },
+  "elapsed_seconds": 1079.6060636043549
+}

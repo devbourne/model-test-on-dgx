@@ -1,0 +1,7 @@
+stage,model,eval_count,total_s,tok_per_s
+01_extract,qwen3:30b-a3b-instruct-2507-q4_K_M,482,17.7,46.5
+02a_gloss_meta,qwen3:30b-a3b-instruct-2507-q4_K_M,488,18.9,29.4
+02c_gloss_text,gpt-oss:20b,1154,91.0,14.8
+02b_gloss_polit,bjoernb/gemma4-26b-fast:latest,1582,120.9,17.3
+03_synthesis,qwen3:30b-a3b-instruct-2507-q4_K_M,1568,54.8,31.9
+04_critique,bjoernb/gemma4-26b-fast:latest,2246,95.7,25.6

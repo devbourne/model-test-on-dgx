@@ -33,6 +33,7 @@ These tests originated as ad-hoc benchmarks scattered across separate project re
 | 2026-05-02 | [combo_d_swap_experiments](reports/2026-05-02_combo_d_swap_experiments.md) | 5-way Combo D slot-swap experiments: where in the pipeline does upgrading to gpt-oss:120b pay off? |
 | 2026-05-02 | [combo_d_playbook](reports/2026-05-02_combo_d_playbook.md) | Configuration playbook — D-20b (universal) and D-120b (DGX premium) detailed reference: stage-by-stage rationale, slot assignments, wall-clock, when to use which |
 | 2026-05-02 | [korean_long_form_failure_modes](reports/2026-05-02_korean_long_form_failure_modes.md) | Production-grade Korean long-form generation failure modes (gemma4 character glitches, gpt-oss:120b semantic errors, shared hallucination). Identifies an evaluation blind-spot in the multi-axis report above; recommends Korean proofreading + hallucination-guard post-layers. |
+| 2026-05-02 | [production_budget_findings](reports/2026-05-02_production_budget_findings.md) | What we kept, what we dropped, and what would actually unblock the 20-30 min/analysis production budget on the literary-master v2 pipeline. Records the experiments behind the v2 default settings + alternative architectural directions. |
 
 ## Data layout
 

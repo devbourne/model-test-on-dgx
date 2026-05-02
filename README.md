@@ -31,6 +31,7 @@ These tests originated as ad-hoc benchmarks scattered across separate project re
 | 2026-05-02 | [gptoss20_vs_gemma4_multiaxis](reports/2026-05-02_gptoss20_vs_gemma4_multiaxis.md) | Direct head-to-head: gpt-oss:20b vs gemma4-26b-fast across 4 task axes |
 | 2026-05-02 | [combo_d_dgx_vs_mac](reports/2026-05-02_combo_d_dgx_vs_mac.md) | Combo D (Triple Gloss) ensemble — DGX vs Mac Studio platform comparison + 120b in 02c slot |
 | 2026-05-02 | [combo_d_swap_experiments](reports/2026-05-02_combo_d_swap_experiments.md) | 5-way Combo D slot-swap experiments: where in the pipeline does upgrading to gpt-oss:120b pay off? |
+| 2026-05-02 | [combo_d_playbook](reports/2026-05-02_combo_d_playbook.md) | Configuration playbook — D-20b (universal) and D-120b (DGX premium) detailed reference: stage-by-stage rationale, slot assignments, wall-clock, when to use which |
 
 ## Data layout
 

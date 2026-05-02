@@ -1,0 +1,21 @@
+# Multi-Agent Ensemble Run — Combo D (Triple Gloss)
+
+## Pipeline
+1. Extract (Qwen3) → `01_extract.json`
+2a. Gloss metaphysical (Qwen3, parallel) → `02a_gloss_qwen3.md`
+2b. Gloss political/linguistic (Gemma4, parallel) → `02b_gloss_gemma4.md`
+2c. Gloss textual close-reading (GPT-OSS, parallel) → `02c_gloss_gptoss.md`
+3. Synthesis (Qwen3) → `03_synthesis.md`
+4. Critique (Gemma4) → `04_critique.md`
+
+## Timings
+
+```
+stage,model,eval_count,total_s,tok_per_s
+01_extract,qwen3:30b-a3b-instruct-2507-q4_K_M,464,22.2,35.8
+02a_gloss_meta,qwen3:30b-a3b-instruct-2507-q4_K_M,490,56.7,9.3
+02c_gloss_text,gpt-oss:120b,1101,126.7,9.9
+02b_gloss_polit,bjoernb/gemma4-26b-fast:latest,1805,147.0,13.1
+03_synthesis,qwen3:30b-a3b-instruct-2507-q4_K_M,1572,54.0,31.9
+04_critique,gpt-oss:120b,1156,54.0,25.2
+```

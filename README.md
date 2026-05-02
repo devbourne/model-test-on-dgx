@@ -29,6 +29,8 @@ These tests originated as ad-hoc benchmarks scattered across separate project re
 | 2026-04-18 | [literary_irony_3config](reports/2026-04-18_literary_irony_3config.md) | Literary irony interpretation — gemma4 / Qwen3.6 / Hybrid pipeline configurations |
 | 2026-05-02 | [locallm_humanities_dgx](reports/2026-05-02_locallm_humanities_dgx.md) | English humanities pipeline (Plato, Sandel) — Rounds 4+5 of [devbourne/locallm-humanities-bench](https://github.com/devbourne/locallm-humanities-bench) |
 | 2026-05-02 | [gptoss20_vs_gemma4_multiaxis](reports/2026-05-02_gptoss20_vs_gemma4_multiaxis.md) | Direct head-to-head: gpt-oss:20b vs gemma4-26b-fast across 4 task axes |
+| 2026-05-02 | [combo_d_dgx_vs_mac](reports/2026-05-02_combo_d_dgx_vs_mac.md) | Combo D (Triple Gloss) ensemble — DGX vs Mac Studio platform comparison + 120b in 02c slot |
+| 2026-05-02 | [combo_d_swap_experiments](reports/2026-05-02_combo_d_swap_experiments.md) | 5-way Combo D slot-swap experiments: where in the pipeline does upgrading to gpt-oss:120b pay off? |
 
 ## Data layout
 

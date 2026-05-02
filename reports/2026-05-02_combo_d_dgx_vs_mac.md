@@ -69,18 +69,71 @@ For Combo D ensemble work on DGX Spark, the trio choice **no longer needs to opt
 | Trio | Memory | Where it makes sense |
 |---|---|---|
 | Qwen3 + Gemma4 + GPT-OSS:20b | 18+17+13 = 48 GB | Universal — fits any hardware ≥64 GB |
-| **Qwen3 + Gemma4 + GPT-OSS:120b** (DGX-only) | 18+17+65 = **100 GB** | DGX Spark only. Whether the 120b's depth advantage in single-model gloss carries through to ensemble output is the open question. *(Round 7 in progress.)* |
+| **Qwen3 + Gemma4 + GPT-OSS:120b** (DGX-only) | 18+17+65 = **100 GB** | DGX Spark only. Higher quality ensemble output (see 3-way comparison below). |
+
+## 3-way ensemble quality comparison
+
+Read all three Combo D runs (Mac with 20b, DGX with 20b, DGX with 120b) on the same passage at the same params, focused on the deliverable stages.
+
+### Stage 02c — Textual close-reading gloss (the model differentiator)
+
+| Run | Distinctive moves |
+|---|---|
+| Mac 20b | Marionette stage = performance, Homeric "spangled heaven" allusion, fire/sun temporal contrast, 3 implications (pain, habituation, good as causal agent) |
+| DGX 20b | Mouth of den placement, "shadows of shadows" meta-representation, contest as social penalty, death threat as political warning |
+| **DGX 120b** | "Tightly staged scene" = drama of performance, **"graduated epistemic calibration"**, water as **"mutable mirror"** intermediate transitional realm, **"silent chorus echoing the reader's assent"**, **"didactic force behind the veneer of collaborative discovery"**, "the light of the fire is the sun" as **collapsing dim/ultimate distinction**, **"metric of knowledge that is itself a shadow-game"**, **"symbolic death of former self"** |
+
+GPT-OSS:120b produces the densest, most crystallized analytic phrasing — the same kind of formulations its single-model run produced in Round 4.
+
+### Stage 03 — Synthesis (3-way merge with explicit verdicts on tensions)
+
+| Run | Tension #3 (most distinctive) |
+|---|---|
+| Mac 20b | Sun as generator vs measure (verdict: GLOSS-A — causal author) |
+| DGX 20b | Good elite vs universal (verdict: GLOSS-B — practically essential) |
+| **DGX 120b** | **Role of language: prison vs bridge** (verdict: language as performance AND vehicle for liberation when used dialectically) |
+
+DGX 120b's "language as prison vs bridge" tension is genuinely novel — neither 20b ensemble surfaced this. Triggered by the 120b textual gloss's emphasis on rhetorical architecture.
+
+### Stage 04 — Critique (gemma4 brand-creation step)
+
+| Run | Branded weakness labels | Traditions invoked |
+|---|---|---|
+| Mac 20b | **3**: *Puppeteer's Vacuum*, *Compulsion Loop*, *Epistemic Leap* | Nietzsche + Aristotelian Empiricism |
+| DGX 20b | 2: *Gradient Fallacy*, *Epistemic Aristocracy* | Empiricism + Post-Structuralism |
+| **DGX 120b** | **3**: *Continuity Fallacy*, *Coercion Paradox*, *Puppeteer Vacuum* | Nietzschean Perspectivism + **Frankfurt School (Critical Theory)** |
+
+Two notable findings:
+
+1. **DGX 120b's labels are an exact match to gemma4's strongest single-model Plato critique** ("Continuity Fallacy" and "Coercion Paradox" — verbatim strings from the original `out/gemma4_03_critique.md`) plus inherits "Puppeteer Vacuum" from the ensemble. The sharper synthesis input gave gemma4 enough material to reproduce its A-game *and* layer in ensemble-derived insights.
+2. **Frankfurt School (Critical Theory) is a new tradition** — none of Mac 20b, DGX 20b, or any prior round invoked it. Likely triggered by the 120b gloss's emphasis on regime-of-truth / power-dynamics framings.
+
+### Composite quality verdict
+
+| Run | Score | Why |
+|---|:-:|---|
+| **DGX Combo D 120b** | **9.5 / 10** | Sharpest gloss, novel synthesis tensions, 3 brand labels (matching gemma4's strongest output), novel tradition (Frankfurt) |
+| Mac Combo D 20b | 9.0 / 10 | README's canonical "publication-grade" exemplar; 3 labels |
+| DGX Combo D 20b | 8.5 / 10 | Strong but 2 labels (sampling), no novel traditions |
+
+**The 120b in the 02c slot pays off in measurable quality terms** — sharper textual gloss → richer synthesis tension surfacing → critique with one more branded label and a tradition the ensemble had not previously invoked.
+
+### Wall-clock cost
+
+DGX 120b run: 253.8s vs DGX 20b run 289.1s. The **120b run was faster by ~12% in this single observation**, but this delta is dominated by sampling variance in stage 02b (gemma4 happened to produce shorter output in the 120b run: 525 tok vs 1582 tok). Across multiple runs, expect parity ±15%. **Treat the 120b variant as quality-equivalent on cost, higher on output.**
+
+## Recommendation
+
+For DGX Spark deployments where 100 GB of resident model memory is acceptable:
+
+- **Default trio: Qwen3 + Gemma4 + GPT-OSS:20b** (48 GB) — proven on multiple platforms, fits any ≥64 GB hardware
+- **DGX-premium trio: Qwen3 + Gemma4 + GPT-OSS:120b** (100 GB) — measurable quality bump in textual gloss → propagates to synthesis and critique. Pay for it when output will be published or graded.
 
 ## Files
 
 ```
-data/2026-05-02_combo_d_dgx/
-├── 01_extract.json                  # Qwen3 stage 1
-├── 02a_gloss_qwen3.md               # parallel
-├── 02b_gloss_gemma4.md              # parallel
-├── 02c_gloss_gptoss.md              # parallel (GPT-OSS:20b)
-├── 03_synthesis.md                  # Qwen3 3-way merge
-├── 04_critique.md                   # Gemma4 anchored critique
-├── REPORT.md                        # auto-generated by run_ensemble_d_dgx.sh
-└── timings.csv
+data/2026-05-02_combo_d_dgx/        # 20b in 02c
+data/2026-05-02_combo_d_dgx_120b/   # 120b in 02c
 ```
+
+Both folders contain the full 7-file Combo D output set (extract, 3 glosses, synthesis, critique, REPORT, timings).

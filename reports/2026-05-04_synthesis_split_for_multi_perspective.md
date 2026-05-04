@@ -119,8 +119,48 @@ Four critical traditions integrated (textual analysis, Marxist, feminist, religi
 - Phase 3 Korean Proofreader gate widened to also walk Stage 4b prose fields when populated (literary-master-v2 commit `0c1b2d7`, applies on next dev restart).
 - v2.5 multi-model architecture proven to deliver both depth and reliability when the synthesis stage is decomposed.
 
+## v2.5i — 4 KB validation: split holds, new key glitch caught
+
+Same architecture run on a 4 KB Gift of Magi excerpt (12 batches, 59 blocks):
+
+| Metric | v2.5i (4 KB) |
+|---|---|
+| 4a parseOk | ✅ true (1,835 tokens) |
+| 4b parseOk | ✅ true (2,749 tokens) |
+| Wall-clock | ~33 min (4 KB, slightly above 30 min budget) |
+| Coverage Repair | not needed (0 partial blocks) |
+| Korean Proofreader (Phase 3 widened gate) | ✅ fired — walked 21 fields via qwen3:30b fallback, fixed 1 |
+| `complementary_insights` | 3 ✅ |
+| `unresolved_tensions` | 2 ✅ |
+| `pedagogical_scaffolding` | 3 sub-fields populated ✅ |
+| `multi_perspective_synthesis_ko` | **0 — landed in mis-keyed field** `multi_perspective_s무_synthesis_ko` (587 chars) |
+
+The split kept 4a/4b parsing at 100% and Phase 3 widened gate fired correctly. But Stage 4b's `multi_perspective_synthesis_ko` value landed under a JSON key with 3 inserted characters (`s무_`) — true Levenshtein distance 3 from the canonical name.
+
+The existing key normalizer (introduced earlier for v2.5e's `multi_perspective_seynthesis_ko`) had an over-aggressive Levenshtein early-exit: when an insertion-heavy typo's DP row-min temporarily climbed above the cap before the alignment recovered, the function returned cap+1 and the match was rejected.
+
+Fix in `src/lib/schemas/synthesis-key-normalize.ts`:
+- Removed the per-row early-exit; the function still bounds work via the absolute length-difference check at the top
+- Raised the cap from 3 → 4 (gemma4 has now produced typos at distance 3 in the wild)
+
+Unit-test cases handled correctly post-fix:
+
+| canonical | candidate | distance | match? |
+|---|---|---|---|
+| `multi_perspective_synthesis_ko` | `multi_perspective_s무_synthesis_ko` | 3 | ✅ |
+| `multi_perspective_synthesis_ko` | `multi_perspective_seynthesis_ko` | 1 | ✅ |
+| `multi_perspective_synthesis_ko` | `multi_perspective_synthesis_con_ko` | 4 | ✅ |
+| `multi_perspective_synthesis_ko` | `completely_different_key` | 5 | ✗ rejected |
+
+Reliability stat update (split alone, before normalizer fix):
+- 2.4 KB: 2/2 success
+- 4 KB: 1 partial (multi_perspective_synthesis_ko salvageable via normalizer)
+
+With normalizer fix landing in commit `3f066a8`, the 4 KB run's same scenario should recover the value automatically. Validation run pending.
+
 ## Open follow-ups
 
-- 4 KB and full-story (~12 KB) reproducibility runs to confirm the split holds at larger input sizes. Wall-clock estimate: 4 KB ~32 min, 12 KB ~70 min (the latter outside single-analysis budget; would land in the long-form async mode discussed in [`2026-05-02_production_budget_findings.md`](2026-05-02_production_budget_findings.md)).
-- Stage 4b prose fields still show occasional gemma4 character glitches (`투류` for `투쟁`, `정학성` for `정수성`) — Phase 3 gate fix lands them in the proofreader's scope; effect to be measured on a fresh run.
+- 4 KB run with normalizer fix to confirm `multi_perspective_synthesis_ko` recovery path works end-to-end (~33 min).
+- Full-story (~12 KB) reproducibility — the split holds in principle but wall-clock crosses the single-analysis budget; would land in the long-form async mode discussed in [`2026-05-02_production_budget_findings.md`](2026-05-02_production_budget_findings.md).
+- Stage 4b prose-field character glitches (`투류` for `투쟁`, `정학성` for `정수성`) — Phase 3 gate fix lands them in the proofreader's scope; effect to be measured on the next 4 KB run.
 - chunk-merge synthesis path (≥150 blocks) currently runs the same Stage 4b enrichment after the merge; behavior verified at single-shot scale only. Long-text validation pending.

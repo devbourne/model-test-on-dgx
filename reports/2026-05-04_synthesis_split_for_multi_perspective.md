@@ -69,16 +69,28 @@ if (input.multiGlossSection) {
 
 The enrichment is wrapped in `callLLMWithJsonFallback` (Phase F-1 — qwen3:30b retry on parse fail), so a malformed enrichment can fall back to the JSON-robust model. If both fail, 4a's 12 fields stay intact — graceful degradation.
 
-## v2.5g result
+## v2.5g + v2.5h results — reproducibility confirmed
 
-Same 2.4 KB Gift of Magi input, first run after split:
+Same 2.4 KB Gift of Magi input, two consecutive runs after the split:
 
-| Stage | parseOk | Tokens | Output |
-|---|---|---|---|
-| 4a (single-shot synthesis, 12 fields) | ✅ true | 1,710 | thesis 85 / overview 306 / plot 206 / 2 chars / 2 syms / cultural 132 / closing 52 |
-| 4b (multi-perspective enrichment, 4 fields) | ✅ true | 1,243 | multi-persp 525 chars / **complementary_insights 3** / **unresolved_tensions 2** / pedagogical 3 subfields |
+| | v2.5g (run 1) | **v2.5h (run 2)** |
+|---|---|---|
+| 4a parseOk | ✅ true | ✅ **true** |
+| 4b parseOk | ✅ true | ✅ **true** |
+| 4a tokens | 1,710 | 1,680 |
+| 4b tokens | 1,243 | 1,121 |
+| `multi_perspective_synthesis_ko` length | 525 chars | **513 chars** |
+| `complementary_insights` count | 3 | **3** ✅ |
+| `unresolved_tensions` count | 2 | **2** ✅ |
+| `pedagogical_scaffolding` 3 sub-fields | populated | **populated** |
+| Synthesis stage wall-clock | 124 s | 117 s |
+| Total wall-clock | 28.6 min | 28.4 min |
 
-Total wall-clock 2.4 KB: 28.6 min (v2.5c single-call success: 22 min). Split adds ~30% to synthesis-stage wall-clock; well inside the 20-30 min budget when multi-gloss layer is enabled.
+**Reliability summary:** 1/5 (20%) before the split → **2/2 (100%) after.**
+
+Variance across the two runs is <10% on all metrics. The output structure is stable — same field counts, similar lengths, same multi-perspective angle coverage (Textual / Critical / Pedagogical pairs all represented).
+
+Wall-clock comparison vs the v2.5c single-call success (the one run out of five that worked): split adds ~30% to synthesis-stage wall-clock (~6 min for 2.4 KB), well inside the 20-30 min single-analysis budget.
 
 ## Quality demonstration — multi_perspective_synthesis_ko
 
@@ -103,6 +115,12 @@ Four critical traditions integrated (textual analysis, Marxist, feminist, religi
 
 ## Status as of this report
 
-- v2.5g: confirmed 1 of 1 successful runs after split. Reproducibility run (v2.5h) in progress.
-- Phase 3 Korean Proofreader gate widened to also walk Stage 4b prose fields when populated (separate commit, applies on next dev restart).
+- v2.5g + v2.5h: **2 of 2 successful runs after the split** (with all 4 multi-perspective fields populated and target minimum counts met). Reliability stat updated from 1/5 (single-call) to 2/2 (split).
+- Phase 3 Korean Proofreader gate widened to also walk Stage 4b prose fields when populated (literary-master-v2 commit `0c1b2d7`, applies on next dev restart).
 - v2.5 multi-model architecture proven to deliver both depth and reliability when the synthesis stage is decomposed.
+
+## Open follow-ups
+
+- 4 KB and full-story (~12 KB) reproducibility runs to confirm the split holds at larger input sizes. Wall-clock estimate: 4 KB ~32 min, 12 KB ~70 min (the latter outside single-analysis budget; would land in the long-form async mode discussed in [`2026-05-02_production_budget_findings.md`](2026-05-02_production_budget_findings.md)).
+- Stage 4b prose fields still show occasional gemma4 character glitches (`투류` for `투쟁`, `정학성` for `정수성`) — Phase 3 gate fix lands them in the proofreader's scope; effect to be measured on a fresh run.
+- chunk-merge synthesis path (≥150 blocks) currently runs the same Stage 4b enrichment after the merge; behavior verified at single-shot scale only. Long-text validation pending.
